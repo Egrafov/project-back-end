@@ -1,14 +1,14 @@
-package com.example.demo;
+package store.inventory;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @DynamicUpdate
 public class ProductInventory {
-
-    //    @Value("#{target.id}")
     @Id
     Long id;
     private String category;
@@ -16,7 +16,9 @@ public class ProductInventory {
     private String name;
     private Double price;
     private Integer available;
-
+    @Lob
+    @Column(name = "image_data", columnDefinition = "MEDIUMBLOB")
+    private byte[] imageData;
 
     public Long getId() {
         return id;
@@ -64,5 +66,13 @@ public class ProductInventory {
 
     public void setAvailable(Integer available) {
         this.available = available;
+    }
+
+    public byte[] getImageData() {
+        return imageData;
+    }
+
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.demo;
+package store.products;
 
 
 import jakarta.persistence.*;

@@ -1,21 +1,32 @@
-package com.example.demo;
+package store.orders;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
-
 
 @Entity
 @Table(name = "orders")
 public class Order {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date orderDate;
     private String userName;
-    private int totalSum;
+    private Integer totalSum;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
     private String address;
+
+    public Order() {
+    }
+
+    public Order(OrderRequest request) {
+        this.orderDate = request.orderDate;
+        this.userName = request.userName;
+        this.totalSum = request.totalSum;
+        this.address = request.address;
+        this.status = OrderStatus.New;
+    }
 
     public Date getOrderDate() {
         return orderDate;
@@ -55,6 +66,14 @@ public class Order {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
     }
 }
 

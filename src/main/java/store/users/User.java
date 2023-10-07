@@ -1,4 +1,4 @@
-package com.example.demo;
+package store.users;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -9,13 +9,30 @@ import jakarta.persistence.Table;
 public class User {
     @Id
     private String userName;
-    //    @Column(nullable = false)
-    private String password;
+
+    private String hashPassword;
+    private String salt;
     private String firstName;
     private String lastName;
     private String phone;
     private String address;
     private boolean isAdmin;
+
+    public String getHashPassword() {
+        return hashPassword;
+    }
+
+    public void setHashPassword(String hashPassword) {
+        this.hashPassword = hashPassword;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
 
     public boolean isAdmin() {
         return isAdmin;
@@ -25,19 +42,11 @@ public class User {
         isAdmin = admin;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     @Override
     public String toString() {
         return "User{" +
                 "userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phone='" + phone + '\'' +

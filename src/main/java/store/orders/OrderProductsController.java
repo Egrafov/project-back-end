@@ -1,4 +1,4 @@
-package com.example.demo;
+package store.orders;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,7 +34,7 @@ public class OrderProductsController {
 
         for (OrderProduct p : orderProductsRepository.findAll()
         ) {
-            System.out.println(p.getOrderID());
+            System.out.println(p.getOrderId());
         }
         return orderProductsRepository.findAll();
     }

@@ -1,4 +1,4 @@
-package com.example.demo;
+package store.inventory;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,10 +10,18 @@ import jakarta.persistence.Table;
 @Table(name = "inventory")
 public class Inventory {
     @Id
-
+    @Column(name = "product_id")
     private Long id;
     @Column
     private Integer available;
+
+    public Inventory() {
+    }
+
+    public Inventory(Long id, Integer available) {
+        this.id = id;
+        this.available = available;
+    }
 
     public Integer getAvailable() {
         return available;

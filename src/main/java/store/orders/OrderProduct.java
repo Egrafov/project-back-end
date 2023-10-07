@@ -1,20 +1,27 @@
-package com.example.demo;
+package store.orders;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @IdClass(OrderProductsId.class)
 @Entity
 @Table(name = "order_products")
 public class OrderProduct {
-
     @Id
-    private Long orderID;
+    @Column(name = "order_id")
+    private Long orderId;
     @Id
+    @Column(name = "product_id")
     private Long productId;
     private Integer quantity;
+
+    public OrderProduct() {
+    }
+
+    public OrderProduct(Long orderId, Long productId, Integer quantity) {
+        this.orderId = orderId;
+        this.productId = productId;
+        this.quantity = quantity;
+    }
 
     public Integer getQuantity() {
         return quantity;
@@ -24,12 +31,12 @@ public class OrderProduct {
         this.quantity = quantity;
     }
 
-    public Long getOrderID() {
-        return orderID;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setOrderID(Long orderID) {
-        this.orderID = orderID;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
     public Long getProductId() {
