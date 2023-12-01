@@ -19,20 +19,7 @@ import java.io.IOException;
 @RequestMapping("/products")
 public class ProductsController {
     private static final Logger log = LoggerFactory.getLogger(ProductsController.class);
-    //    @PostMapping(
-//            consumes = {MediaType.MULTIPART_FORM_DATA_VALUE},
-//            produces = {MediaType.APPLICATION_JSON_VALUE})
-//    public String uploadFilesProduct(Product product) {
-//        log.info("product details: " + product);
-//        // Add your processing logic here
-//        return "success";
-//    }
-//    @PostMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-//    public ResponseEntity<Product> uploadProduct(@ModelAttribute Product product) throws IOException {
-////        product.setImageData(file.getBytes());
-//        var saved = productRepository.save(product);
-//        return ResponseEntity.status(HttpStatus.OK).body(saved);
-//    }
+
     File destinationFile = new File("/test", "unique_filename.ext");
     @Autowired
     private ProductRepository productRepository;

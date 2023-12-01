@@ -12,7 +12,7 @@ public class Order {
     private Long id;
     private Date orderDate;
     private String userName;
-    private Integer totalSum;
+    private Double totalSum;
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
     private String address;
@@ -44,11 +44,11 @@ public class Order {
         this.userName = userName;
     }
 
-    public int getTotalSum() {
+    public Double getTotalSum() {
         return totalSum;
     }
 
-    public void setTotalSum(int totalSum) {
+    public void setTotalSum(Double totalSum) {
         this.totalSum = totalSum;
     }
 
